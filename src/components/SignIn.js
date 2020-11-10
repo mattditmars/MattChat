@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+import {isMobile} from 'react-device-detect';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -7,7 +8,11 @@ const SignIn = () => {
     const { auth } = useContext(AuthContext);
     const signInWithGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider);
+        if(isMobile) {
+            auth.signInWithRedirect(provider);
+        } else {
+            auth.signInWithPopup(provider);
+        }
     }
     
     return (
