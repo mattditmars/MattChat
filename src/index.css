@@ -125,6 +125,9 @@ p {
 .message {
   display: flex;
   align-items: center;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
 }
 
 .sent {
@@ -136,7 +139,6 @@ p {
   background: #8F9490;
   align-self: flex-end;
   text-align: left;
-
 }
 
 .received p {
